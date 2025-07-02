@@ -30,6 +30,8 @@ ares8_modelを立ち上げた後は上のバーにある再生ボタンを押す
 ![image](https://github.com/user-attachments/assets/38dcc74f-0cc9-4582-907b-219d81e82b27)
 
 操作はキーボードで行い下のキーで操作することができる。
+| keyboard | rover |                              
+|-|-| 
 | w | 前進 |
 | a | 左旋回|
 | s | 右旋回 |
