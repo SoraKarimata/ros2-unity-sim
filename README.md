@@ -21,6 +21,7 @@ windows,mac,ubuntuでそれぞれ必要なパッケージをインストール�
 ## Open packages
 ### 1. Launch Unity
 windows,macの場合はこのGithub内のwindows-mac内のares8_modelをunityでプロジェクトとして開くことでシミュレーションを起動できる。
+ROS2バージョンはros2-unity-sim内のares8_modelをプロジェクトとして起動。
 ![image](https://github.com/user-attachments/assets/787ef718-d6d9-4ed9-8ee1-cdeb5d700b45)
 
 ### 2. Open Project
