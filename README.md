@@ -1,7 +1,7 @@
 # ROS2 Unity Simulator
 Unity simulation environment for UniversityRoverChallenge2026. 　　　
 
-We are using [ros2-for-unity](https://github.com/RobotecAI/ros2-for-unity) between ros2 and unity communication which uses native DDS communication.
+We use [ros2-for-unity](https://github.com/RobotecAI/ros2-for-unity) between ros2 and unity communication which allow native DDS communication.
 
 ## Platforms
 WindowsとUbuntu22.04で動作確認済み。
