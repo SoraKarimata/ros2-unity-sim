@@ -5,7 +5,7 @@ We use [ros2-for-unity](https://github.com/RobotecAI/ros2-for-unity) between ros
 
 ## Platforms
 WindowsとUbuntu22.04で動作確認済み。
-| OS | Version |                              
+| Name | Version |                              
 |-|-| 
 | Ubuntu | 22.04 |
 | Unity | 2022.3.20f1 |
