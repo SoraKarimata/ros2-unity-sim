@@ -1,11 +1,11 @@
 # ROS2 Unity Simulator
 Unity simulation environment for UniversityRoverChallenge2026. 　　　
 
-We are using ros2-for-unity which allows native DDS communication between ros2 and unity.
+We use [ros2-for-unity](https://github.com/RobotecAI/ros2-for-unity) between ros2 and unity communication which allow native DDS communication.
 
 ## Platforms
 WindowsとUbuntu22.04で動作確認済み。
-| OS | Version |                              
+| Name | Version |                              
 |-|-| 
 | Ubuntu | 22.04 |
 | Unity | 2022.3.20f1 |
@@ -20,7 +20,8 @@ windows,mac,ubuntuでそれぞれ必要なパッケージをインストール�
 
 ## Open packages
 ### 1. Launch Unity
-windows,macの場合はwindowsディレクトリ内のares8_modelをunityでプロジェクトとして開くことでシミュレーションを起動できる。
+windows,macの場合はこのGithub内のwindows-mac内のares8_modelをunityでプロジェクトとして開くことでシミュレーションを起動できる。
+ROS2バージョンはros2-unity-sim内のares8_modelをプロジェクトとして起動。
 ![image](https://github.com/user-attachments/assets/787ef718-d6d9-4ed9-8ee1-cdeb5d700b45)
 
 ### 2. Open Project
@@ -35,8 +36,8 @@ ares8_modelを立ち上げた後は上のバーにある再生ボタンを押す
 |-|-| 
 | w | 前進 |
 | a | 左旋回|
-| s | 右旋回 |
-| d | 後退 |
+| d | 右旋回 |
+| s | 後退 |
 
 
 
