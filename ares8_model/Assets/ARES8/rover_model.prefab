@@ -310,7 +310,6 @@ GameObject:
   - component: {fileID: 8443828267709166289}
   - component: {fileID: 3168260569654185377}
   - component: {fileID: 3691382560040329773}
-  - component: {fileID: 8738194675332835086}
   m_Layer: 0
   m_Name: Camera_1_rviz
   m_TagString: Untagged
@@ -404,19 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feab04ad06492965492b3edc6423aa53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8738194675332835086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4404580940853936909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a456e9c8d6c91c038a0e3c6f0a8f314c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderTexture: {fileID: 8400000, guid: be594409fb3fe7b43a6a5fb647441c83, type: 2}
 --- !u!1 &4653639142096791491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1046,9 @@ MonoBehaviour:
   reverseRPMMultiplier: 1.5
   autoBrakeThreshold: 4
   highSpeedSteeringMultiplier: 1
+  useROS2Control: 1
+  fallbackToKeyboard: 1
+  ros2Timeout: 0.01
 --- !u!1 &7878780255909102314
 GameObject:
   m_ObjectHideFlags: 0

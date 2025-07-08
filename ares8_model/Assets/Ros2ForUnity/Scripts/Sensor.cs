@@ -84,7 +84,7 @@ public abstract class Sensor<T> : ISensor where T : MessageWithHeader, new()
     private Publisher<T> publisher;
     private Subscription<rosgraph_msgs.msg.Clock> clockSubscriber;
     private ROS2UnityComponent ros2UnityComponent;
-    private ROS2Node ros2Node;
+    protected ROS2Node ros2Node;
     private string ownerAgentName;
     private double lastTimestamp;
     private double timeSinceLastFixedUpdate;
@@ -183,7 +183,7 @@ public abstract class Sensor<T> : ISensor where T : MessageWithHeader, new()
     /// <summary>
     /// Initialize header and calculate frame time
     /// </summary>
-    void Awake()
+    protected virtual void Awake()
     {
         // turn on publishing on start
         publishing = true;

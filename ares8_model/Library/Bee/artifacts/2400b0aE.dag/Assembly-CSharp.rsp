@@ -378,7 +378,6 @@
 -r:"Library/Bee/artifacts/2400b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"/home/karisora/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/home/karisora/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/2D_Cameras/RenderTexture2ROS2Image.cs"
 "Assets/ARES8/Car.cs"
 "Assets/ARES8/rover_control.cs"
 "Assets/Ros2ForUnity/Scripts/PostInstall.cs"
@@ -399,6 +398,11 @@
 "Assets/Ros2ForUnity/Scripts/Time/TimeUtils.cs"
 "Assets/Ros2ForUnity/Scripts/Time/UnityTimeSource.cs"
 "Assets/Ros2ForUnity/Scripts/Transformations.cs"
+"Assets/Sensors/Camera/RenderTexture2ROS2Image.cs"
+"Assets/Sensors/GPS/GPS.cs"
+"Assets/Sensors/IMU/IMU.cs"
+"Assets/Sensors/IMU/IMU2.cs"
+"Assets/Sensors/Realsense/realsense.cs"
 -langversion:9.0
 
 /deterministic
