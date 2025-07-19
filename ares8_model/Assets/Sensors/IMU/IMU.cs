@@ -7,6 +7,7 @@ using ROS2;
 namespace ROS2
 {
     [RequireComponent(typeof(ROS2UnityComponent))]
+
     public class IMU : MonoBehaviour
     {
         private ROS2UnityComponent ros2Unity;
@@ -40,6 +41,7 @@ namespace ROS2
             }
             ros2Node = ros2Unity.CreateNode("imu_node");
             imu_pub = ros2Node.CreatePublisher<sensor_msgs.msg.Imu>(topicName);
+            
         }
 
         // Update is called once per frame
@@ -60,17 +62,21 @@ namespace ROS2
             Vector3 velocity = (transform.position - lastPosition) / dt;
 
             acceleration = (velocity - lastVelocity) / dt;
-            // Convert acceleration from Unity coordinates to IMU coordinates
-            acceleration = transform.InverseTransformDirection(acceleration);
+            // Convert acceleration from Unity coordinates to ROS coordinates using Transformations
+            acceleration = acceleration.Unity2Ros();
 
             // Angular velocity
             Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
             deltaRotation.ToAngleAxis(out float angle, out Vector3 axis);
             if (angle > 180f) angle -= 360f;
             angularVelocity = axis * angle * Mathf.Deg2Rad / dt;
+            // Convert angular velocity from Unity coordinates to ROS coordinates using Transformations
+            angularVelocity = angularVelocity.Unity2Ros();
 
             // Orientation
             orientation = transform.rotation;
+            // Convert orientation from Unity coordinates to ROS coordinates using Transformations
+            orientation = orientation.Unity2Ros();
 
             // Next frame for calculation of acceleration and angular velocity
             lastPosition = transform.position;

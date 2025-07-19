@@ -1,0 +1,43 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    tire_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    str_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    joint_state_controller:
+      type: joint_state_controller/JointStateController
+
+
+tire_controller:
+  ros__parameters:
+    joints:
+      - lf_tire
+      - rf_tire
+      - lb_tire
+      - rb_tire
+    interface_name: velocity
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - position
+      - velocity
+str_controller:
+  ros__parameters:
+    joints:
+      - lf_str
+      - rf_str
+      - lb_str
+      - rb_str
+    interface_name: position
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

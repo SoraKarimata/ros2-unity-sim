@@ -1,0 +1,610 @@
+<?xml version="1.0" ?>
+<robot name="ares8_rover_arm" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<xacro:property name="body_color" value="Gazebo/Silver" />
+	<material name="silver">
+		<color rgba="0.700 0.700 0.700 1.000"/>
+	</material>
+
+	<gazebo>
+		<plugin name="control" filename="libgazebo_ros_control.so"/>
+	</gazebo>
+	<gazebo reference="base_link">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+		<gravity>true</gravity>
+	</gazebo>
+
+	<gazebo reference="steering_link_lf_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="steering_link_lb_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="steering_link_rb_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="steering_link_rf_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="tire_RF_link_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="tire_RB_link_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="tire_LF_link_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="tire_LB_link_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+	<gazebo reference="arm_urdf_v1_1">
+		<material>${body_color}</material>
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<self_collide>true</self_collide>
+	</gazebo>
+
+
+	<transmission name="lf_str_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="lf_str">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="lf_str_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="lb_str_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="lb_str">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="lb_str_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="rb_str_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="rb_str">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="rb_str_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="rf_str_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="rf_str">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="rf_str_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="rf_tire_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="rf_tire">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="rf_tire_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="rb_tire_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="rb_tire">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="rb_tire_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="lf_tire_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="lf_tire">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="lf_tire_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="lb_tire_tran">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="lb_tire">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="lb_tire_actr">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<link name="base_link">
+		<inertial>
+			<origin xyz="0.007393875774457437 -0.0009412649500128051 0.401095816100654" rpy="0 0 0"/>
+			<mass value="10.0"/>
+			<inertia ixx="0.289233" iyy="0.413784" izz="0.666879" ixy="-0.000192" iyz="0.0" ixz="-0.006064"/>
+  	</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="steering_link_lf_1">
+		<inertial>
+			<origin xyz="7.495130477469525e-05 -0.08530635234355655 -0.19524524560699147" rpy="0 0 0"/>
+			<mass value="5.253331445605197"/>
+			<inertia ixx="0.04929" iyy="0.038552" izz="0.014173" ixy="-5e-06" iyz="-0.009932" ixz="-2.8e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.419863 -0.406338 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_lf_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="-0.419863 -0.406338 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_lf_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="steering_link_lb_1">
+		<inertial>
+			<origin xyz="7.587614450105251e-05 -0.08530635234351625 -0.19524524560699574" rpy="0 0 0"/>
+			<mass value="5.253331445605197"/>
+			<inertia ixx="0.04929" iyy="0.038552" izz="0.014173" ixy="-5e-06" iyz="-0.009932" ixz="-2.8e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="0.290355 -0.406338 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_lb_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="0.290355 -0.406338 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_lb_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="steering_link_rb_1">
+		<inertial>
+			<origin xyz="-7.505592811557493e-05 0.08530582244346485 -0.19524524560691126" rpy="0 0 0"/>
+			<mass value="5.253331445605197"/>
+			<inertia ixx="0.04929" iyy="0.038552" izz="0.014173" ixy="-5e-06" iyz="-0.009932" ixz="-2.8e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="0.291489 0.40822 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_rb_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="0.291489 0.40822 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_rb_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="steering_link_rf_1">
+		<inertial>
+			<origin xyz="-7.498076784201446e-05 0.08530582244346474 -0.19524524560690684" rpy="0 0 0"/>
+			<mass value="5.253331445605197"/>
+			<inertia ixx="0.04929" iyy="0.038552" izz="0.014173" ixy="-5e-06" iyz="-0.009932" ixz="-2.8e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.418728 0.40822 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_rf_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="-0.418728 0.40822 -0.411206" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/steering_link_rf_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="tire_RF_link_1">
+		<inertial>
+			<origin xyz="4.3688981010703287e-07 -0.005000307396643422 5.292792376598854e-08" rpy="0 0 0"/>
+		  <mass value="3.0128049440849543"/>
+		  <inertia ixx="0.02254" iyy="0.039295" izz="0.02254" ixy="4.4e-05" iyz="-2.55e-05" ixz="-0.0"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.418728 0.390495 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_RF_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="-0.418728 0.390495 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_RF_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="tire_RB_link_1">
+		<inertial>
+			<origin xyz="3.617295363800288e-07 -0.005000307396643422 5.292791921407414e-08" rpy="0 0 0"/>
+		  <mass value="3.0128049440849543"/>
+		  <inertia ixx="0.02254" iyy="0.039295" izz="0.02254" ixy="4.4e-05" iyz="-2.55e-05" ixz="-0.0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0.291489 0.390495 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_RB_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="0.291489 0.390495 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_RB_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="tire_LF_link_1">
+		<inertial>
+			<origin xyz="-4.663528770931791e-07 0.00499977749653624 5.292782004340246e-08" rpy="0 0 0"/>
+		  <mass value="3.0128049440849543"/>
+		  <inertia ixx="0.02254" iyy="0.039295" izz="0.02254" ixy="4.4e-05" iyz="-2.55e-05" ixz="-0.0"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.419863 -0.388613 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_LF_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="-0.419863 -0.388613 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_LF_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="tire_LB_link_1">
+		<inertial>
+			<origin xyz="4.584868495971506e-07 0.004999777496576485 5.292781576904382e-08" rpy="0 0 0"/>
+		  <mass value="3.0128049440849543"/>
+		  <inertia ixx="0.02254" iyy="0.039295" izz="0.02254" ixy="4.4e-05" iyz="-2.55e-05" ixz="-0.0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0.290355 -0.388613 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_LB_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="0.290355 -0.388613 -0.157306" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/tire_LB_link_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<link name="arm_urdf_v1_1">
+		<inertial>
+			<origin xyz="-0.07852564190509956 0.02778797421342765 0.2279113243854924" rpy="0 0 0"/>
+			<mass value="10.0"/>
+			<inertia ixx="0.309090" iyy="0.619579" izz="0.385615" ixy="-0.004100" iyz="-0.046013" ixz="0.107386"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.05287 0.000941 -0.473778" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/arm_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="silver"/>
+		</visual>
+		<collision>
+			<origin xyz="-0.05287 0.000941 -0.473778" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nav_rover_control/meshes/arm_urdf_v1_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="lf_str" type="continuous">
+		<origin xyz="0.419863 0.406338 0.411206" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="steering_link_lf_1"/>
+		<axis xyz="0.0 -0.0 -1.0"/>
+	</joint>
+
+	<joint name="lb_str" type="continuous">
+		<origin xyz="-0.290355 0.406338 0.411206" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="steering_link_lb_1"/>
+		<axis xyz="-0.0 0.0 1.0"/>
+	</joint>
+
+	<joint name="rb_str" type="continuous">
+		<origin xyz="-0.291489 -0.40822 0.411206" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="steering_link_rb_1"/>
+		<axis xyz="0.0 -0.0 -1.0"/>
+	</joint>
+
+	<joint name="rf_str" type="continuous">
+		<origin xyz="0.418728 -0.40822 0.411206" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="steering_link_rf_1"/>
+		<axis xyz="-0.0 0.0 1.0"/>
+	</joint>
+
+	<joint name="rf_tire" type="continuous">
+		<origin xyz="0.0 0.017725 -0.2539" rpy="0 0 0"/>
+		<parent link="steering_link_rf_1"/>
+		<child link="tire_RF_link_1"/>
+		<axis xyz="0.0 -1.0 0.0"/>
+	</joint>
+
+	<joint name="rb_tire" type="continuous">
+		<origin xyz="0.0 0.017725 -0.2539" rpy="0 0 0"/>
+		<parent link="steering_link_rb_1"/>
+		<child link="tire_RB_link_1"/>
+		<axis xyz="0.0 -1.0 0.0"/>
+	</joint>
+
+	<joint name="lf_tire" type="continuous">
+		<origin xyz="0.0 -0.017725 -0.2539" rpy="0 0 0"/>
+		<parent link="steering_link_lf_1"/>
+		<child link="tire_LF_link_1"/>
+		<axis xyz="-0.0 1.0 -0.0"/>
+	</joint>
+
+	<joint name="lb_tire" type="continuous">
+		<origin xyz="0.0 -0.017725 -0.2539" rpy="0 0 0"/>
+		<parent link="steering_link_lb_1"/>
+		<child link="tire_LB_link_1"/>
+		<axis xyz="0.0 1.0 -0.0"/>
+	</joint>
+
+	<joint name="arm_fix" type="fixed">
+		<origin xyz="0.05287 -0.000941 0.473778" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="arm_urdf_v1_1"/>
+	</joint>
+	 <ros2_control name="GazeboSystem" type="system">
+			<hardware>
+				<plugin>gazebo_ros2_control/GazeboSystem</plugin>
+			</hardware>
+
+
+			<joint name="lf_tire">
+				<command_interface name="velocity">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+
+			<joint name="rf_tire">
+				<command_interface name="velocity">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+
+			<joint name="lb_tire">
+				<command_interface name="velocity">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+
+			<joint name="rb_tire">
+				<command_interface name="velocity">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+
+
+
+			<joint name="lf_str">
+				<command_interface name="position">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+
+			<joint name="rf_str">
+				<command_interface name="position">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+
+			<joint name="lb_str">
+				<command_interface name="position">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+
+			<joint name="rb_str">
+				<command_interface name="position">
+					<param name="min">-3.14</param>
+					<param name="max">3.14</param>
+				</command_interface>
+				<state_interface name="position">
+					<param name="initial_value">0</param>
+				</state_interface>
+				<state_interface name="velocity"/>
+				<state_interface name="effort"/>
+			</joint>
+  </ros2_control>
+  <!-- ros2_control -->
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>/home/karisora/nav_ws/install/nav_rover_control/share/nav_rover_control/config/ares8_rover.yaml</parameters>
+    </plugin>
+
+ 		<plugin name="four_ws_robot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+          <remapping>~/out:=joint_states</remapping>
+      </ros>
+      <update_rate>30</update_rate>
+      <joint_name>lf_tire</joint_name>
+      <joint_name>rf_tire</joint_name>
+      <joint_name>lb_tire</joint_name>
+      <joint_name>rb_tire</joint_name>
+      <joint_name>lf_str</joint_name>
+      <joint_name>rf_str</joint_name>
+      <joint_name>lb_str</joint_name>
+      <joint_name>rb_str</joint_name>
+    </plugin>
+
+
+  </gazebo>
+		<plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <parameters>/home/karisora/nav_ws/install/nav_rover_control/share/nav_rover_control/config/ares8_rover.yaml</parameters>
+    </plugin>
+
+
+
+	<gazebo>
+		<plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+			<!-- wheels -->
+
+
+			<num_wheel_pairs>2</num_wheel_pairs>
+			<left_joint>lf_tire</left_joint>
+			<left_joint>lb_tire</left_joint>
+
+			<right_joint>rf_tire</right_joint>
+			<right_joint>rb_tire</right_joint>
+
+
+
+			<!-- kinematics -->
+			<wheel_separation>0.4</wheel_separation>
+			<wheel_diameter>0.2</wheel_diameter>
+
+			<!-- limits -->
+			<max_wheel_torque>20</max_wheel_torque>
+
+			<max_wheel_acceleration>2.0</max_wheel_acceleration>
+				<!-- output -->
+			<publish_odom>true</publish_odom>
+			<publish_odom_tf>true</publish_odom_tf>
+			<publish_wheel_tf>false</publish_wheel_tf>
+
+			<odometry_frame>odom</odometry_frame>
+			<robot_base_frame>base_footprint</robot_base_frame>
+		</plugin>
+	</gazebo>
+
+
+</robot>

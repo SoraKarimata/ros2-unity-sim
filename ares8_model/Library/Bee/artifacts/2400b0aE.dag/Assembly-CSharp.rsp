@@ -402,6 +402,7 @@
 "Assets/Sensors/GPS/GPS.cs"
 "Assets/Sensors/IMU/IMU.cs"
 "Assets/Sensors/IMU/IMU2.cs"
+"Assets/Sensors/Odom/Odom.cs"
 "Assets/Sensors/Realsense/realsense.cs"
 -langversion:9.0
 

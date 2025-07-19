@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<robot name="ares8_rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find ares8_rover_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find ares8_rover_description)/urdf/ares8_rover.trans" />
+<xacro:include filename="$(find ares8_rover_description)/urdf/ares8_rover.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.007393875774457437 -0.0009412649500128051 0.401095816100654" rpy="0 0 0"/>
+    <mass value="368.1311417677187"/>
+    <inertia ixx="10.647575" iyy="15.232701" izz="24.549912" ixy="-0.00709" iyz="0.0" ixz="-0.223263"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="steering_link_lf_1">
+  <inertial>
+    <origin xyz="7.495130477469525e-05 -0.08530635234355655 -0.19524524560699147" rpy="0 0 0"/>
+    <mass value="10.506662891210395"/>
+    <inertia ixx="0.09858" iyy="0.077104" izz="0.028346" ixy="-1e-05" iyz="-0.019863" ixz="-5.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.419863 -0.406338 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.419863 -0.406338 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="steering_link_lb_1">
+  <inertial>
+    <origin xyz="7.587614450105251e-05 -0.08530635234351625 -0.19524524560699574" rpy="0 0 0"/>
+    <mass value="10.506662891210395"/>
+    <inertia ixx="0.09858" iyy="0.077104" izz="0.028346" ixy="-1e-05" iyz="-0.019863" ixz="-5.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.290355 -0.406338 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_lb_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.290355 -0.406338 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_lb_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="steering_link_rb_1">
+  <inertial>
+    <origin xyz="-7.505592811557493e-05 0.08530582244346485 -0.19524524560691126" rpy="0 0 0"/>
+    <mass value="10.506662891210395"/>
+    <inertia ixx="0.09858" iyy="0.077104" izz="0.028346" ixy="-1e-05" iyz="0.019863" ixz="5.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.291489 0.40822 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_rb_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.291489 0.40822 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_rb_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="steering_link_rf_1">
+  <inertial>
+    <origin xyz="-7.498076784201446e-05 0.08530582244346474 -0.19524524560690684" rpy="0 0 0"/>
+    <mass value="10.506662891210395"/>
+    <inertia ixx="0.09858" iyy="0.077104" izz="0.028346" ixy="-1e-05" iyz="0.019863" ixz="5.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.418728 0.40822 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.418728 0.40822 -0.411206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/steering_link_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_LB_link_1">
+  <inertial>
+    <origin xyz="0.0007074324264990661 0.020604746349113967 -0.0004088190133060554" rpy="0 0 0"/>
+    <mass value="6.0256098881699085"/>
+    <inertia ixx="0.04508" iyy="0.078589" izz="0.04508" ixy="8.8e-05" iyz="-5.1e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.290355 -0.388613 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_LB_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.290355 -0.388613 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_LB_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_LF_link_1">
+  <inertial>
+    <origin xyz="0.0007065075867560555 0.02060474634907411 -0.0004088190133018088" rpy="0 0 0"/>
+    <mass value="6.0256098881699085"/>
+    <inertia ixx="0.04508" iyy="0.078589" izz="0.04508" ixy="8.8e-05" iyz="-5.1e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.419863 -0.388613 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_LF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.419863 -0.388613 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_LF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_RB_link_1">
+  <inertial>
+    <origin xyz="0.0007077255242637914 -0.020603557729272193 -0.00040885359117279196" rpy="0 0 0"/>
+    <mass value="6.025601976962255"/>
+    <inertia ixx="0.045081" iyy="0.078589" izz="0.04508" ixy="-8.8e-05" iyz="5.1e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.291489 0.390495 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_RB_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.291489 0.390495 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_RB_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tire_RF_link_1">
+  <inertial>
+    <origin xyz="-0.0007069269049217453 -0.020603557729271915 0.00040895944702001863" rpy="0 0 0"/>
+    <mass value="6.025601976962255"/>
+    <inertia ixx="0.045081" iyy="0.078589" izz="0.04508" ixy="8.8e-05" iyz="-5.1e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.418728 0.390495 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_RF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.418728 0.390495 -0.157306" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ares8_rover_description)/meshes/tire_RF_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="lf_str" type="continuous">
+  <origin xyz="0.419863 0.406338 0.411206" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="steering_link_lf_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="lb_str" type="continuous">
+  <origin xyz="-0.290355 0.406338 0.411206" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="steering_link_lb_1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+<joint name="rb_str" type="continuous">
+  <origin xyz="-0.291489 -0.40822 0.411206" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="steering_link_rb_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="rf_str" type="continuous">
+  <origin xyz="0.418728 -0.40822 0.411206" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="steering_link_rf_1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+<joint name="lb_tire" type="continuous">
+  <origin xyz="0.0 -0.017725 -0.2539" rpy="0 0 0"/>
+  <parent link="steering_link_lb_1"/>
+  <child link="tire_LB_link_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="lf_tire" type="continuous">
+  <origin xyz="0.0 -0.017725 -0.2539" rpy="0 0 0"/>
+  <parent link="steering_link_lf_1"/>
+  <child link="tire_LF_link_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="rb_tire" type="continuous">
+  <origin xyz="0.0 0.017725 -0.2539" rpy="0 0 0"/>
+  <parent link="steering_link_rb_1"/>
+  <child link="tire_RB_link_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="rf_tire" type="continuous">
+  <origin xyz="0.0 0.017725 -0.2539" rpy="0 0 0"/>
+  <parent link="steering_link_rf_1"/>
+  <child link="tire_RF_link_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+</robot>
