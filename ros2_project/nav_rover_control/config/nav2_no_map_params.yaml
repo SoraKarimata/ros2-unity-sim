@@ -103,7 +103,7 @@ controller_server:
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.3
+      xy_goal_tolerance: 0.5
       yaw_goal_tolerance: 6.28
     # DWB parameters
     FollowPath:
@@ -164,8 +164,8 @@ local_costmap:
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        cost_scaling_factor: 1.5
+        inflation_radius: 0.8
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -203,8 +203,8 @@ global_costmap:
       # fit on a big static costmap. Thus it is recommended to use a rolling global costmap large enough to 
       # contain each pair of successive waypoints. See: https://github.com/ros-planning/navigation2/issues/2174
       rolling_window: True
-      width: 400
-      height: 400
+      width: 250
+      height: 250
       track_unknown_space: true
       # no static map
       plugins: ["obstacle_layer", "inflation_layer"]
@@ -226,8 +226,8 @@ global_costmap:
           inf_is_valid: true
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        cost_scaling_factor: 1.5
+        inflation_radius: 0.8
       always_send_full_costmap: True
 
 # The yaml_filename does not need to be specified since it going to be set by defaults in launch.
@@ -250,7 +250,7 @@ planner_server:
     planner_plugins: ["GridBased"]
     GridBased:
       plugin: "nav2_navfn_planner/NavfnPlanner"
-      tolerance: 2.0
+      tolerance: 1.0
       use_astar: false
       allow_unknown: true
 
@@ -259,7 +259,7 @@ smoother_server:
     smoother_plugins: ["simple_smoother"]
     simple_smoother:
       plugin: "nav2_smoother::SimpleSmoother"
-      tolerance: 1.0e-10
+      tolerance: 1.0e-8
       max_its: 1000
       do_refinement: True
 
